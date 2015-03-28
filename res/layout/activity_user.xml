@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"    
+        android:text="You want a..." />
+    
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/mover_array"
+        android:layout_marginTop="20dp"    
+        android:prompt="@string/select1"/>
+    
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/starttime" />
+    
+    <TextView
+        android:id="@+id/endTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="20dp"                
+        android:text="@string/endtime"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/date" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/location" />
+    
+    <Button 
+        android:id="@+id/buttonSubmit" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="20.0dip" 
+        android:text="@string/submit" 
+        android:layout_below="@id/location" />
+</LinearLayout>

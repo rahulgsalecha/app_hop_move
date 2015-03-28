@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/movie_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:paddingLeft="2dp" >
+    </ListView>
+
+</LinearLayout>
+--> 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/mover_data"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:text="@string/mover_data" />
+
+    <TextView
+        android:id="@+id/mover_start_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/mover_data"
+        android:text="@string/mover_start_time" />
+    
+    <TextView
+        android:id="@+id/mover_end_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/mover_start_time"
+        android:text="@string/mover_end_time" />
+    
+    <TextView
+        android:id="@+id/mover_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/mover_end_time"
+        android:text="@string/mover_date" />
+ 
+    <TextView
+        android:id="@+id/mover_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/mover_date"
+        android:text="@string/mover_location" />
+
+</RelativeLayout>
+

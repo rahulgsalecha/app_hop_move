@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Move</string>
+    <string name="mover_name">Mover</string>
+    <string name="user_name">User</string>
+    <string name="welcome">Welcome to MOVE !!</string>
+    <string name="action_settings">Settings</string>
+    <string name="user">USER</string>
+    <string name="mover">MOVER</string>
+    <string name="select0">SERVICE</string>
+    <string name="select1">MOVER</string>
+    <string name="starttime">START TIME</string>
+    <string name="endtime">END TIME</string>
+    <string name="date">DATE</string>
+    <string name="location">LOCATION</string>
+    <string name="submit">SUBMIT</string>
+    <string name="mover_data">Mover</string>
+    <string name="mover_start_time">Start Time</string>
+    <string name="mover_end_time">End Time</string>
+    <string name="mover_date">Date</string>
+    <string name="mover_location">Location</string>
+    
+    
+    <string-array name="mover_array">
+        <item>Plumber</item>
+        <item>Doctor</item>
+        <item>Driver</item>
+        <item>Electrician</item>
+        <item>Teacher</item>
+        <item>Musician</item>
+        <item>Engineer</item>
+        <item>Handyman</item>
+    </string-array>
+    
+    <string-array name="service_array">
+        <item>Plumbing</item>
+        <item>Doctor</item>
+        <item>Driving</item>
+        <item>Electrician</item>
+        <item>Teaching</item>
+        <item>Musician</item>
+        <item>Engineering</item>
+        <item>Handyman</item>
+    </string-array>
+    
+
+</resources>
