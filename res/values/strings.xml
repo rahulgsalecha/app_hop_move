@@ -1,48 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Move</string>
-    <string name="mover_name">Mover</string>
-    <string name="user_name">User</string>
-    <string name="welcome">Welcome to MOVE !!</string>
+    <string name="app_name">DRIFT</string>
+    <string name="mover_name">DRIFT</string>
+    <string name="user_name">DRIFT</string>
+    <string name="welcome">Welcome to DRIFT !!</string>
     <string name="action_settings">Settings</string>
-    <string name="user">USER</string>
-    <string name="mover">MOVER</string>
+    <string name="user">I need a DRIFTer</string>
+    <string name="mover">Im a DRIFTer</string>
     <string name="select0">SERVICE</string>
-    <string name="select1">MOVER</string>
+    <string name="select1">DRIFTer</string>
     <string name="starttime">START TIME</string>
     <string name="endtime">END TIME</string>
     <string name="date">DATE</string>
     <string name="location">LOCATION</string>
     <string name="submit">SUBMIT</string>
-    <string name="mover_data">Mover</string>
+    <string name="mover_data">DRIFTer</string>
     <string name="mover_start_time">Start Time</string>
     <string name="mover_end_time">End Time</string>
     <string name="mover_date">Date</string>
     <string name="mover_location">Location</string>
+    <string name="mover_name_detail">Name:</string>
+    <string name="mover_phone">Phone:</string>
+    <string name="mover_email">Email:</string>
     
-    
-    <string-array name="mover_array">
-        <item>Plumber</item>
-        <item>Doctor</item>
-        <item>Driver</item>
-        <item>Electrician</item>
-        <item>Teacher</item>
-        <item>Musician</item>
-        <item>Engineer</item>
-        <item>Handyman</item>
-    </string-array>
-    
-    <string-array name="service_array">
-        <item>Plumbing</item>
-        <item>Doctor</item>
-        <item>Driving</item>
-        <item>Electrician</item>
-        <item>Teaching</item>
-        <item>Musician</item>
-        <item>Engineering</item>
-        <item>Handyman</item>
-    </string-array>
-    
+    <!-- Login and Registration -->   
+    <string name="name">Your Name:</string>
+    <string name="phone">Your Mobile Number:</string>
+    <string name="email">Your Email Id:</string>
+    <string name="input_hint">Enter a Task</string>
+    <string name="submit_button">Submit</string>
+    <string name="title_activity_login">Log In</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_register">Register</string>
+    <string name="action_logout">Logout</string>
+    <string name="username">Username:</string>
+    <string name="sign_up_label">Sign Up</string>
+    <string name="password_label">Password:</string>
+    <string name="already_have_an_account_label">Already Have An Account? Log In!</string>
+    <string name="sign_in_label">Sign In</string>
+    <string name="dont_have_an_account_label">New to DRIFT ? Sign Up !</string>
+    <string name="log_out_label">Log Out</string>
+    <string name="back_to_main">Back to Main Page</string>
 
 </resources>

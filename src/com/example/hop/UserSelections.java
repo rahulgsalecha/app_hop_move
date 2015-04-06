@@ -8,6 +8,8 @@ import android.app.ListActivity;
 import android.content.ClipData.Item;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,9 +22,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.maps.GeoPoint;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -35,6 +40,8 @@ public class UserSelections extends Activity
 	static String user_end_time;
 	static String user_date;
 	static String user_location;
+	static LatLng user_latlong;
+	MoverAdapter adapter;
 
 
 
@@ -55,6 +62,7 @@ public class UserSelections extends Activity
 		user_end_time = localIntent.getStringExtra("end_time");
 		user_date = localIntent.getStringExtra("date");
 		user_location = localIntent.getStringExtra("location");
+		user_latlong = getLocationFromAddress(user_location);
 
 		populateMoversList();
 	}
@@ -62,40 +70,18 @@ public class UserSelections extends Activity
 	private void populateMoversList() {
 
 		// Construct the data source
-		parseAllMovers();
+		
 		//ArrayList<MoverItems> arrayOfMovers = moversParsed;
 		// Create the adapter to convert the array to views
-		MoverAdapter adapter = new MoverAdapter(this, moversParsed);
+		adapter = new MoverAdapter(this, moversParsed);
+		parseAllMovers();
 		// Attach the adapter to a ListView
 		final ListView listView = (ListView) findViewById(R.id.lvUsers);
 		listView.setAdapter(adapter);
-
-/*
-		// ListView Item Click Listener
-		 listView.setOnItemClickListener(new OnItemClickListener() {
-
-                  @Override
-                  public void onItemClick(AdapterView<?> parent, View view,
-                     int position, long id) {
-
-                   // ListView Clicked item index
-                   int itemPosition     = position;
-
-                   // ListView Clicked item value
-                   String  itemValue    = (String) listView.getItemAtPosition(position);
-
-                    // Show Alert 
-                    Toast.makeText(getApplicationContext(),
-                      "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                      .show();
-
-                  }
-
-             }); 
-             */
 	}
 
 	public static void saveParsedMoverData(ArrayList<MoverItems> parsed_movers){
+		moversParsed.clear();
 		for(int i=0;i<parsed_movers.size();i++){
 			moversParsed.add(i,parsed_movers.get(i));
 			
@@ -105,9 +91,14 @@ public class UserSelections extends Activity
 	}
 
 	public void parseAllMovers() {
+		ParseGeoPoint user_point = new ParseGeoPoint(user_latlong.latitude, user_latlong.longitude);  
 		final ArrayList<MoverItems> movers = new ArrayList<MoverItems>();
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("MoverDataStore_1");
 		query.whereEqualTo("mover", user_data);
+		query.whereEqualTo("date", user_date);
+		//query.whereGreaterThanOrEqualTo("start_time", user_start_time);
+		//query.whereLessThanOrEqualTo("end_time", user_end_time);
+		query.whereWithinMiles("mover_point", user_point, 25);
 		query.findInBackground(new FindCallback<ParseObject>() {
 
 			public void done(List<ParseObject> moverList, ParseException e) {
@@ -123,10 +114,15 @@ public class UserSelections extends Activity
 									moverList.get(i).getString("start_time"),
 									moverList.get(i).getString("end_time"),
 									moverList.get(i).getString("date"),
-									moverList.get(i).getString("location")));
+									moverList.get(i).getString("location"),
+									moverList.get(i).getParseGeoPoint("mover_point"),
+									moverList.get(i).getString("mover_name"),
+									moverList.get(i).getString("mover_phone"),
+									moverList.get(i).getString("mover_email")));
 							i++;
 							
 						}
+						adapter.notifyDataSetChanged();
 					}
 					
 				}
@@ -135,7 +131,32 @@ public class UserSelections extends Activity
 			}
 		});
 	}
+	
+	public LatLng getLocationFromAddress(String strAddress) {
 
+	    Geocoder coder = new Geocoder(this);
+	    List<Address> address;
+	    LatLng p1 = null;
+
+	    try {
+	        address = coder.getFromLocationName(strAddress, 5);
+	        if (address == null) {
+	            return null;
+	        }
+	        Address location = address.get(0);
+	        location.getLatitude();
+	        location.getLongitude();
+
+	        p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+	    } catch (Exception ex) {
+
+	        ex.printStackTrace();
+	    }
+
+	    return p1;
+	}
+	
 	protected void onDestroy()
 	{
 		Log.d(logtag, "onDestroy() called");
@@ -171,8 +192,3 @@ public class UserSelections extends Activity
 		super.onStop();
 	}
 }
-
-/* Location:           /Users/rsalecha/Downloads/dex2jar-0.0.9.15/classes_dex2jar.jar
- * Qualified Name:     com.example.hop.UserSelections
- * JD-Core Version:    0.6.2
- */

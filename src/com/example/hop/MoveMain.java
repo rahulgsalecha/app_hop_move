@@ -1,6 +1,8 @@
 package com.example.hop;
 
 
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +16,13 @@ public class MoveMain extends Activity
   private static String logtag = "Main App";
   Button buttonMover;
   Button buttonUser;
+  Button logOut;
 
   public void addListenerOnButton() {
   	
   	Button buttonMover = (Button)findViewById(R.id.buttonMover);        
       Button buttonUser = (Button)findViewById(R.id.buttonUser);  
+      logOut = (Button)findViewById(R.id.log_out); 
       
       buttonMover.setOnClickListener(new OnClickListener() {
       	public void onClick(View v){
@@ -38,6 +42,7 @@ public class MoveMain extends Activity
       
   }
 
+  
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       switch (requestCode) {
       case 0:
@@ -58,6 +63,34 @@ public class MoveMain extends Activity
     super.onCreate(paramBundle);
     setContentView(R.layout.activity_main);
     addListenerOnButton();
+    
+    // Get current user
+    ParseUser currentUser = ParseUser.getCurrentUser();
+     
+    if (currentUser == null) {
+        // It's an anonymous user, hence show the login screen
+        navigateToLogin();
+    }
+    else {
+        // The user is logged in, yay!!
+        Log.i(logtag, currentUser.getUsername());
+    }
+  }
+  
+  private void navigateToLogin() {
+	    // Launch the login activity
+	     
+	    Intent intent = new Intent(this, LoginActivity.class);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	    startActivity(intent);
+	    finish();
+	}
+  
+  public void logOut(final View v){
+		v.setEnabled(false);
+		ParseUser.logOut();
+		navigateToLogin();	
   }
 
   protected void onDestroy()

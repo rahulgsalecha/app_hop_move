@@ -8,10 +8,6 @@
 package com.example.hop;
 
 public final class R {
-    public static final class array {
-        public static final int mover_array=0x7f0a0000;
-        public static final int service_array=0x7f0a0001;
-    }
     public static final class attr {
         /** 
     The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
@@ -398,6 +394,149 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010014;
     }
     public static final class color {
+        public static final int AliceBlue=0x7f070053;
+        public static final int AntiqueWhite=0x7f070049;
+        public static final int Aqua=0x7f0700a3;
+        public static final int Aquamarine=0x7f070088;
+        public static final int Azure=0x7f070051;
+        public static final int Beige=0x7f07004e;
+        public static final int Bisque=0x7f070034;
+        public static final int Black=0x7f0700b2;
+        public static final int BlanchedAlmond=0x7f070032;
+        public static final int Blue=0x7f0700ae;
+        public static final int BlueViolet=0x7f070081;
+        public static final int Brown=0x7f070075;
+        public static final int BurlyWood=0x7f07005b;
+        public static final int CadetBlue=0x7f070093;
+        public static final int Chartreuse=0x7f070089;
+        public static final int Chocolate=0x7f070065;
+        public static final int Coral=0x7f07003e;
+        public static final int CornflowerBlue=0x7f070092;
+        public static final int Cornsilk=0x7f07002e;
+        public static final int Crimson=0x7f07005e;
+        public static final int Cyan=0x7f0700a4;
+        public static final int DarkBlue=0x7f0700b0;
+        public static final int DarkCyan=0x7f0700aa;
+        public static final int DarkGoldenrod=0x7f07006d;
+        public static final int DarkGray=0x7f070074;
+        public static final int DarkGreen=0x7f0700ad;
+        public static final int DarkKhaki=0x7f07006a;
+        public static final int DarkMagenta=0x7f07007f;
+        public static final int DarkOliveGreen=0x7f070094;
+        public static final int DarkOrange=0x7f07003d;
+        public static final int DarkOrchid=0x7f070078;
+        public static final int DarkRed=0x7f070080;
+        public static final int DarkSalmon=0x7f070058;
+        public static final int DarkSeaGreen=0x7f07007d;
+        public static final int DarkSlateBlue=0x7f070097;
+        public static final int DarkSlateGray=0x7f07009d;
+        public static final int DarkTurquoise=0x7f0700a8;
+        public static final int DarkViolet=0x7f07007a;
+        public static final int DeepPink=0x7f070042;
+        public static final int DeepSkyBlue=0x7f0700a9;
+        public static final int DimGray=0x7f070090;
+        public static final int DodgerBlue=0x7f0700a1;
+        public static final int FireBrick=0x7f07006e;
+        public static final int FloralWhite=0x7f07002c;
+        public static final int ForestGreen=0x7f07009f;
+        public static final int Fuchsia=0x7f070043;
+        public static final int Gainsboro=0x7f07005d;
+        public static final int GhostWhite=0x7f07004b;
+        public static final int Gold=0x7f070038;
+        public static final int Goldenrod=0x7f070060;
+        public static final int Gray=0x7f070084;
+        public static final int Green=0x7f0700ac;
+        public static final int GreenYellow=0x7f070072;
+        public static final int Honeydew=0x7f070052;
+        public static final int HotPink=0x7f07003f;
+        public static final int IndianRed=0x7f070067;
+        public static final int Indigo=0x7f070095;
+        public static final int Ivory=0x7f070028;
+        public static final int Khaki=0x7f070054;
+        public static final int Lavender=0x7f070059;
+        public static final int LavenderBlush=0x7f070030;
+        public static final int LawnGreen=0x7f07008a;
+        public static final int LemonChiffon=0x7f07002d;
+        public static final int LightBlue=0x7f070073;
+        public static final int LightCoral=0x7f070055;
+        public static final int LightCyan=0x7f07005a;
+        public static final int LightGoldenrodYellow=0x7f070047;
+        public static final int LightGreen=0x7f07007c;
+        public static final int LightGrey=0x7f070063;
+        public static final int LightPink=0x7f07003a;
+        public static final int LightSalmon=0x7f07003c;
+        public static final int LightSeaGreen=0x7f0700a0;
+        public static final int LightSkyBlue=0x7f070082;
+        public static final int LightSlateGray=0x7f07008c;
+        public static final int LightSteelBlue=0x7f070070;
+        public static final int LightYellow=0x7f070029;
+        public static final int Lime=0x7f0700a6;
+        public static final int LimeGreen=0x7f07009c;
+        public static final int Linen=0x7f070048;
+        public static final int Magenta=0x7f070044;
+        public static final int Maroon=0x7f070087;
+        public static final int MediumAquamarine=0x7f070091;
+        public static final int MediumBlue=0x7f0700af;
+        public static final int MediumOrchid=0x7f07006c;
+        public static final int MediumPurple=0x7f07007b;
+        public static final int MediumSeaGreen=0x7f07009b;
+        public static final int MediumSlateBlue=0x7f07008b;
+        public static final int MediumSpringGreen=0x7f0700a7;
+        public static final int MediumTurquoise=0x7f070096;
+        public static final int MediumVioletRed=0x7f070068;
+        public static final int MidnightBlue=0x7f0700a2;
+        public static final int MintCream=0x7f07004c;
+        public static final int MistyRose=0x7f070033;
+        public static final int Moccasin=0x7f070035;
+        public static final int NavajoWhite=0x7f070036;
+        public static final int Navy=0x7f0700b1;
+        public static final int OldLace=0x7f070046;
+        public static final int Olive=0x7f070085;
+        public static final int OliveDrab=0x7f07008e;
+        public static final int Orange=0x7f07003b;
+        public static final int OrangeRed=0x7f070041;
+        public static final int Orchid=0x7f070061;
+        public static final int PaleGoldenrod=0x7f070056;
+        public static final int PaleGreen=0x7f070079;
+        public static final int PaleTurquoise=0x7f070071;
+        public static final int PaleVioletRed=0x7f07005f;
+        public static final int PapayaWhip=0x7f070031;
+        public static final int PeachPuff=0x7f070037;
+        public static final int Peru=0x7f070066;
+        public static final int Pink=0x7f070039;
+        public static final int Plum=0x7f07005c;
+        public static final int PowderBlue=0x7f07006f;
+        public static final int Purple=0x7f070086;
+        public static final int Red=0x7f070045;
+        public static final int RosyBrown=0x7f07006b;
+        public static final int RoyalBlue=0x7f070099;
+        public static final int SaddleBrown=0x7f07007e;
+        public static final int Salmon=0x7f07004a;
+        public static final int SandyBrown=0x7f070050;
+        public static final int SeaGreen=0x7f07009e;
+        public static final int Seashell=0x7f07002f;
+        public static final int Sienna=0x7f070076;
+        public static final int Silver=0x7f070069;
+        public static final int SkyBlue=0x7f070083;
+        public static final int SlateBlue=0x7f07008f;
+        public static final int SlateGray=0x7f07008d;
+        public static final int Snow=0x7f07002b;
+        public static final int SpringGreen=0x7f0700a5;
+        public static final int SteelBlue=0x7f070098;
+        public static final int Tan=0x7f070064;
+        public static final int Teal=0x7f0700ab;
+        public static final int Thistle=0x7f070062;
+        public static final int Tomato=0x7f070040;
+        public static final int Turquoise=0x7f07009a;
+        public static final int Violet=0x7f070057;
+        public static final int Wheat=0x7f07004f;
+        public static final int White=0x7f070027;
+        public static final int WhiteSmoke=0x7f07004d;
+        public static final int Yellow=0x7f07002a;
+        public static final int YellowGreen=0x7f070077;
+        public static final int aqua=0x7f070020;
+        public static final int black=0x7f070026;
+        public static final int blue=0x7f070024;
         public static final int common_action_bar_splitter=0x7f070009;
         /**  Sign-in Button Colors 
          */
@@ -410,8 +549,19 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f070006;
         public static final int common_signin_btn_light_text_focused=0x7f070007;
         public static final int common_signin_btn_light_text_pressed=0x7f070005;
-        public static final int common_signin_btn_text_dark=0x7f070017;
-        public static final int common_signin_btn_text_light=0x7f070018;
+        public static final int common_signin_btn_text_dark=0x7f0700b3;
+        public static final int common_signin_btn_text_light=0x7f0700b4;
+        public static final int fuchsia=0x7f070019;
+        public static final int gray=0x7f07001c;
+        public static final int green=0x7f070023;
+        public static final int lime=0x7f070021;
+        public static final int maroon=0x7f07001f;
+        public static final int navy=0x7f070025;
+        public static final int olive=0x7f07001d;
+        public static final int purple=0x7f07001e;
+        public static final int red=0x7f07001a;
+        public static final int silver=0x7f07001b;
+        public static final int teal=0x7f070022;
         public static final int wallet_bright_foreground_disabled_holo_light=0x7f07000f;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
@@ -430,8 +580,10 @@ containing a value of this type.
         public static final int wallet_hint_foreground_holo_light=0x7f070011;
         public static final int wallet_holo_blue_light=0x7f070015;
         public static final int wallet_link_text_light=0x7f070016;
-        public static final int wallet_primary_text_holo_light=0x7f070019;
-        public static final int wallet_secondary_text_holo_dark=0x7f07001a;
+        public static final int wallet_primary_text_holo_light=0x7f0700b5;
+        public static final int wallet_secondary_text_holo_dark=0x7f0700b6;
+        public static final int white=0x7f070017;
+        public static final int yellow=0x7f070018;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -472,61 +624,79 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020018;
         public static final int common_signin_btn_text_pressed_dark=0x7f020019;
         public static final int common_signin_btn_text_pressed_light=0x7f02001a;
-        public static final int ic_launcher=0x7f02001b;
-        public static final int ic_plusone_medium_off_client=0x7f02001c;
-        public static final int ic_plusone_small_off_client=0x7f02001d;
-        public static final int ic_plusone_standard_off_client=0x7f02001e;
-        public static final int ic_plusone_tall_off_client=0x7f02001f;
-        public static final int powered_by_google_dark=0x7f020020;
-        public static final int powered_by_google_light=0x7f020021;
-        public static final int rounded_corner_map=0x7f020022;
+        public static final int drift=0x7f02001b;
+        public static final int ic_launcher=0x7f02001c;
+        public static final int ic_plusone_medium_off_client=0x7f02001d;
+        public static final int ic_plusone_small_off_client=0x7f02001e;
+        public static final int ic_plusone_standard_off_client=0x7f02001f;
+        public static final int ic_plusone_tall_off_client=0x7f020020;
+        public static final int powered_by_google_dark=0x7f020021;
+        public static final int powered_by_google_light=0x7f020022;
+        public static final int rounded_corner_map=0x7f020023;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c002c;
-        public static final int adjust_height=0x7f0c0000;
-        public static final int adjust_width=0x7f0c0001;
-        public static final int adressText=0x7f0c001e;
-        public static final int book_now=0x7f0c0010;
-        public static final int buttonMover=0x7f0c001f;
-        public static final int buttonSubmit=0x7f0c0026;
-        public static final int buttonUser=0x7f0c0020;
-        public static final int buyButton=0x7f0c000c;
-        public static final int buy_now=0x7f0c0011;
-        public static final int buy_with_google=0x7f0c0012;
-        public static final int classic=0x7f0c0014;
-        public static final int date=0x7f0c0024;
-        public static final int donate_with_google=0x7f0c0013;
-        public static final int endTime=0x7f0c0023;
-        public static final int grayscale=0x7f0c0015;
-        public static final int holo_dark=0x7f0c0007;
-        public static final int holo_light=0x7f0c0008;
-        public static final int hybrid=0x7f0c0003;
-        public static final int imageView1=0x7f0c001c;
-        public static final int location=0x7f0c0025;
-        public static final int locationMarker=0x7f0c001a;
-        public static final int locationMarkertext=0x7f0c001b;
-        public static final int lvUsers=0x7f0c0018;
-        public static final int map=0x7f0c0019;
-        public static final int match_parent=0x7f0c000e;
-        public static final int monochrome=0x7f0c0016;
-        public static final int mover_data=0x7f0c0027;
-        public static final int mover_date=0x7f0c002a;
-        public static final int mover_end_time=0x7f0c0029;
-        public static final int mover_location=0x7f0c002b;
-        public static final int mover_start_time=0x7f0c0028;
-        public static final int none=0x7f0c0002;
-        public static final int normal=0x7f0c0004;
-        public static final int production=0x7f0c0009;
-        public static final int sandbox=0x7f0c000a;
-        public static final int satellite=0x7f0c0005;
-        public static final int selectionDetails=0x7f0c000d;
-        public static final int slide=0x7f0c0017;
-        public static final int spinner1=0x7f0c0021;
-        public static final int startTime=0x7f0c0022;
-        public static final int strict_sandbox=0x7f0c000b;
-        public static final int terrain=0x7f0c0006;
-        public static final int textView1=0x7f0c001d;
-        public static final int wrap_content=0x7f0c000f;
+        public static final int Submit=0x7f0b002c;
+        public static final int action_logout=0x7f0b003d;
+        public static final int action_settings=0x7f0b003c;
+        public static final int adjust_height=0x7f0b0000;
+        public static final int adjust_width=0x7f0b0001;
+        public static final int adressText=0x7f0b001e;
+        public static final int backToMain=0x7f0b0036;
+        public static final int book_now=0x7f0b0010;
+        public static final int buttonMover=0x7f0b0024;
+        public static final int buttonSubmit=0x7f0b0035;
+        public static final int buttonUser=0x7f0b0025;
+        public static final int buyButton=0x7f0b000c;
+        public static final int buy_now=0x7f0b0011;
+        public static final int buy_with_google=0x7f0b0012;
+        public static final int classic=0x7f0b0014;
+        public static final int date=0x7f0b002a;
+        public static final int donate_with_google=0x7f0b0013;
+        public static final int endTime=0x7f0b0029;
+        public static final int error_messages=0x7f0b001f;
+        public static final int grayscale=0x7f0b0015;
+        public static final int holo_dark=0x7f0b0007;
+        public static final int holo_light=0x7f0b0008;
+        public static final int hybrid=0x7f0b0003;
+        public static final int imageView1=0x7f0b001c;
+        public static final int location=0x7f0b002b;
+        public static final int locationMarker=0x7f0b001a;
+        public static final int locationMarkertext=0x7f0b001b;
+        public static final int log_out=0x7f0b0026;
+        public static final int login_password=0x7f0b0021;
+        public static final int login_username=0x7f0b0020;
+        public static final int lvUsers=0x7f0b0018;
+        public static final int map=0x7f0b0019;
+        public static final int match_parent=0x7f0b000e;
+        public static final int monochrome=0x7f0b0016;
+        public static final int mover_data=0x7f0b0038;
+        public static final int mover_email=0x7f0b003a;
+        public static final int mover_location=0x7f0b003b;
+        public static final int mover_name=0x7f0b0037;
+        public static final int mover_phone=0x7f0b0039;
+        public static final int myautocomplete=0x7f0b0027;
+        public static final int myautocomplete1=0x7f0b0034;
+        public static final int none=0x7f0b0002;
+        public static final int normal=0x7f0b0004;
+        public static final int production=0x7f0b0009;
+        public static final int registerButton=0x7f0b0023;
+        public static final int register_email=0x7f0b002f;
+        public static final int register_name=0x7f0b002d;
+        public static final int register_password=0x7f0b0031;
+        public static final int register_phone=0x7f0b002e;
+        public static final int register_username=0x7f0b0030;
+        public static final int sandbox=0x7f0b000a;
+        public static final int satellite=0x7f0b0005;
+        public static final int selectionDetails=0x7f0b000d;
+        public static final int signInButton=0x7f0b0033;
+        public static final int sign_in=0x7f0b0022;
+        public static final int sign_up=0x7f0b0032;
+        public static final int slide=0x7f0b0017;
+        public static final int startTime=0x7f0b0028;
+        public static final int strict_sandbox=0x7f0b000b;
+        public static final int terrain=0x7f0b0006;
+        public static final int textView1=0x7f0b001d;
+        public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -534,21 +704,28 @@ containing a value of this type.
     public static final class layout {
         public static final int activity_custom_list=0x7f030000;
         public static final int activity_location=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_mover=0x7f030003;
-        public static final int activity_user=0x7f030004;
-        public static final int activity_user_select=0x7f030005;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_mover=0x7f030004;
+        public static final int activity_register=0x7f030005;
+        public static final int activity_user=0x7f030006;
+        public static final int activity_user_select=0x7f030007;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int login=0x7f0a0000;
+        public static final int register=0x7f0a0001;
+        public static final int todo=0x7f0a0002;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f040000;
     }
     public static final class string {
         public static final int accept=0x7f060002;
+        public static final int action_logout=0x7f060044;
         public static final int action_settings=0x7f06002a;
+        public static final int already_have_an_account_label=0x7f060048;
         public static final int app_name=0x7f060026;
+        public static final int back_to_main=0x7f06004c;
         /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
          */
         public static final int common_android_wear_notification_needs_update_text=0x7f060009;
@@ -661,23 +838,42 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int date=0x7f060031;
         public static final int decline=0x7f060003;
+        public static final int dont_have_an_account_label=0x7f06004a;
+        public static final int email=0x7f06003e;
         public static final int endtime=0x7f060030;
+        public static final int hello_world=0x7f060042;
+        public static final int input_hint=0x7f06003f;
         public static final int location=0x7f060032;
+        public static final int log_out_label=0x7f06004b;
         public static final int mover=0x7f06002c;
         public static final int mover_data=0x7f060034;
         public static final int mover_date=0x7f060037;
+        public static final int mover_email=0x7f06003b;
         public static final int mover_end_time=0x7f060036;
         public static final int mover_location=0x7f060038;
         public static final int mover_name=0x7f060027;
+        public static final int mover_name_detail=0x7f060039;
+        public static final int mover_phone=0x7f06003a;
         public static final int mover_start_time=0x7f060035;
+        /**  Login and Registration 
+         */
+        public static final int name=0x7f06003c;
+        public static final int password_label=0x7f060047;
+        public static final int phone=0x7f06003d;
         public static final int select0=0x7f06002d;
         public static final int select1=0x7f06002e;
+        public static final int sign_in_label=0x7f060049;
+        public static final int sign_up_label=0x7f060046;
         public static final int starttime=0x7f06002f;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         public static final int submit=0x7f060033;
+        public static final int submit_button=0x7f060040;
+        public static final int title_activity_login=0x7f060041;
+        public static final int title_activity_register=0x7f060043;
         public static final int user=0x7f06002b;
         public static final int user_name=0x7f060028;
+        public static final int username=0x7f060045;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

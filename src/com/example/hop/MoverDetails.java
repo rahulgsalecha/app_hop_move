@@ -9,20 +9,35 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.app.Application;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class MoverDetails extends Activity
 implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener
@@ -30,34 +45,95 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 	private static String logtag = "MoverDetails Page";
 	SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
 	ParseObject MoverDataStore_1 = new ParseObject("MoverDataStore_1");
+	ParseObject UserDetails = new ParseObject("UserDetails");
+	Button buttonSubmit;
+	Button logOut;
 	private String date_data;
 	private String end_time;
 	private String location;
+	private LatLng mover_latlong;
 	private String mover_data;
-	private Spinner spinner1;
 	private String start_time;
+	private String mover_name;
+	private String mover_phone;
+	private String mover_email;
 	private TextView textview1;
 	private TextView textview2;
 	private TextView textview3;
 	private TextView textview4;
-
-	public void addListenerOnSpinnerItemSelection()
+	
+	/*
+     * Change to type CustomAutoCompleteView instead of AutoCompleteTextView 
+     * since we are extending to customize the view and disable filter
+     * The same with the XML view, type will be CustomAutoCompleteView
+     */
+     CustomAutoCompleteView myAutoComplete;
+     
+    // adapter for auto-complete
+     ArrayAdapter<String> myAdapter;
+     
+    // just to add some initial value
+     String[] item = new String[] {"Please search..."};
+    
+     ParseQuery<ParseObject> query;
+     
+     static ArrayList<MyObject> moversParsed = new ArrayList<MyObject>();
+	
+	public void addListenerOnAutoCompleteViewSelection()
 	{
-		spinner1 = (Spinner) findViewById(R.id.spinner1);
-		spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-		{
-			public void onItemSelected(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
-			{
-				mover_data = MoverDetails.this.spinner1.getSelectedItem().toString();
-				MoverDataStore_1.put("mover", MoverDetails.this.mover_data);
-				MoverDataStore_1.saveInBackground();
-			}
+		try{
+            
+            myAutoComplete = (CustomAutoCompleteView) findViewById(R.id.myautocomplete);
+             
+            // add the listener so it will tries to suggest while the user types
+            myAutoComplete.addTextChangedListener(new CustomAutoCompleteTextChangedListener(this));
+             
+            // set our adapter
+            myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, item);
+            myAutoComplete.setAdapter(myAdapter);
+            
+            myAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() 
+			
+    		{
 
-			public void onNothingSelected(AdapterView<?> paramAnonymousAdapterView)
-			{
-			}
-		});
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					// TODO Auto-generated method stub
+					mover_data = myAutoComplete.getText().toString();
+					MoverDataStore_1.put("mover", MoverDetails.this.mover_data);
+					MoverDataStore_1.saveInBackground();
+					
+				}
+
+				
+            	
+    		});
+         
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
+	
+	// this function is used in CustomAutoCompleteTextChangedListener.java
+    public String[] getItemsFromDb(String searchTerm){
+         
+    	searchAllTitles(searchTerm);
+        // add items on the array dynamically
+        int rowCount = moversParsed.size();
+         
+        String[] item = new String[rowCount];
+        int x = 0;
+         
+        for (MyObject record : moversParsed) {
+             
+            item[x] = record.objectName;
+            x++;
+        }
+        return item;
+    }
 
 	public void addListenerOnTextView()
 	{
@@ -111,9 +187,12 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 		if (paramInt1 == 2)
 		{
 			location = paramIntent.getStringExtra("address");
-			textview4.setText(location);
 			MoverDataStore_1.put("location", location);
+			mover_latlong = getLocationFromAddress(location);
+			ParseGeoPoint mover_point = new ParseGeoPoint(mover_latlong.latitude, mover_latlong.longitude); 
+			MoverDataStore_1.put("mover_point", mover_point);
 			MoverDataStore_1.saveInBackground();
+			textview4.setText("Location: " + location);
 		}
 	}
 
@@ -126,12 +205,41 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 	public void onClick(View paramView)
 	{
 	}
+	
+	public LatLng getLocationFromAddress(String strAddress) {
+
+	    Geocoder coder = new Geocoder(this);
+	    List<Address> address;
+	    LatLng p1 = null;
+
+	    try {
+	        address = coder.getFromLocationName(strAddress, 5);
+	        if (address == null) {
+	            return null;
+	        }
+	        Address location = address.get(0);
+	        location.getLatitude();
+	        location.getLongitude();
+
+	        p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+	    } catch (Exception ex) {
+
+	        ex.printStackTrace();
+	    }
+
+	    return p1;
+	}
 
 	protected void onCreate(Bundle paramBundle)
 	{
 		super.onCreate(paramBundle);
 		setContentView(R.layout.activity_mover);
-		addListenerOnSpinnerItemSelection();
+		logOut = (Button)findViewById(R.id.log_out); 
+	    
+	    buttonSubmit = (Button)findViewById(R.id.Submit);
+		addListenerOnAutoCompleteViewSelection();
+		//addListenerOnSpinnerItemSelection();
 		addListenerOnTextView();
 	}
 
@@ -206,6 +314,7 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 			date_data = textview3.getText().toString();
 			MoverDataStore_1.put("date", MoverDetails.this.date_data);
 			MoverDataStore_1.saveInBackground();
+			textview3.setText("Date Available: " + DATE_FORMATTER.format(cal.getTime()));
 		}
 	}
 
@@ -235,6 +344,7 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 			end_time = textview2.getText().toString();
 			MoverDataStore_1.put("end_time", MoverDetails.this.end_time);
 			MoverDataStore_1.saveInBackground();
+			textview2.setText("End Time is : " +""+hourOfDay+":"+minute);
 		}
 	}
 
@@ -265,6 +375,119 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 			start_time = textview1.getText().toString();
 			MoverDataStore_1.put("start_time", MoverDetails.this.start_time);
 			MoverDataStore_1.saveInBackground();
+			textview1.setText("Start Time is : " + ""+hourOfDay+":"+minute);
 		}
+	}
+	
+	private void navigateToLogin() {
+	    // Launch the login activity
+		
+		
+	    Intent intent = new Intent(this, LoginActivity.class);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	    startActivity(intent);
+	    finish();
+	}
+  
+  public void logOut(final View v){
+		v.setEnabled(false);
+		ParseUser.logOut();
+		navigateToLogin();	
+  }
+  
+  public void navigateToMain(final View v) {
+	  v.setEnabled(false);
+	// Launch the main activity
+	  ParseUser currentUser = ParseUser.getCurrentUser();
+	  setMoverDetails(currentUser.getUsername());
+	  
+	    Intent intent = new Intent(this, MoveMain.class);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+	    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+	    startActivity(intent);
+	    finish();
+  }
+	
+	public static void saveParsedMoverData(ArrayList<MyObject> parsed_movers){
+		
+		moversParsed.clear();
+		for(int i=0;i<parsed_movers.size();i++){
+			
+			moversParsed.add(i,parsed_movers.get(i));
+			
+		} 
+		System.out.println("Return moversParsed, size : " + moversParsed.size());
+		
+	}
+	
+	public void searchAllTitles(String searchTerm) {
+		 
+		final ArrayList<MyObject> movers = new ArrayList<MyObject>();
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("job_titles");
+		query.whereContains("Title", searchTerm);
+		//query.whereStartsWith("Title", searchTerm);
+		query.orderByAscending("Title");
+		query.findInBackground(new FindCallback<ParseObject>() {
+
+			public void done(List<ParseObject> moverList, ParseException e) {
+				if (e == null && moverList != null)
+				{
+					if(!(moverList.isEmpty()))
+					{
+						int size = moverList.size();
+						int i=0;
+						while (i < size) 
+						{	  
+							movers.add(new MyObject(moverList.get(i).getString("Title")));
+							i++;
+							
+						}
+					}
+					
+				}
+				System.out.println("Movers, size : " + movers.size());
+				saveParsedMoverData(movers);
+			}
+		});
+	}
+	
+	public void setMoverDetails(String username) {
+		System.out.println("setMoverDetails: username" + username);
+		 
+		ParseQuery<ParseObject> mover_details_query = ParseQuery.getQuery("UserDetails");
+		mover_details_query.whereEqualTo("username", username);
+		mover_details_query.findInBackground(new FindCallback<ParseObject>() {
+
+			public void done(List<ParseObject> moverList, ParseException e) {
+				if (e == null && moverList != null)
+				{
+					if(!(moverList.isEmpty()))
+					{
+						int size = moverList.size();
+						System.out.println("setMoverDetails: moverList.size() :  "+ moverList.size());
+						int i=0;
+						while (i < size) 
+						{	  
+							mover_name = moverList.get(i).getString("name");
+							mover_phone = moverList.get(i).getString("phone");
+							mover_email = moverList.get(i).getString("email");
+							
+							System.out.println("setMoverDetails: mover_name :  "+ mover_name);
+							System.out.println("setMoverDetails: mover_phone :  "+ mover_phone);
+							System.out.println("setMoverDetails: mover_email :  "+ mover_email);
+							
+							 MoverDataStore_1.put("mover_name", MoverDetails.this.mover_name);
+							  MoverDataStore_1.put("mover_phone", MoverDetails.this.mover_phone);
+							  MoverDataStore_1.put("mover_email", MoverDetails.this.mover_email);
+							  MoverDataStore_1.saveInBackground();
+							  
+							i++;
+						}
+					}
+					
+				}
+			}
+		});
 	}
 }

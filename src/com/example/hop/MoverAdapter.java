@@ -28,16 +28,22 @@ public class MoverAdapter extends ArrayAdapter<MoverItems> {
         }
         // Lookup view for data population
         TextView moverData = (TextView) convertView.findViewById(R.id.mover_data);
-        TextView moverStartTime = (TextView) convertView.findViewById(R.id.mover_start_time);
-        TextView moverEndTime = (TextView) convertView.findViewById(R.id.mover_end_time);
-        TextView moverDate = (TextView) convertView.findViewById(R.id.mover_date);
+        //TextView moverStartTime = (TextView) convertView.findViewById(R.id.mover_start_time);
+        //TextView moverEndTime = (TextView) convertView.findViewById(R.id.mover_end_time);
+        //TextView moverDate = (TextView) convertView.findViewById(R.id.mover_date);
+        TextView moverName = (TextView) convertView.findViewById(R.id.mover_name);
+        TextView moverPhone = (TextView) convertView.findViewById(R.id.mover_phone);
+        TextView moverEmail = (TextView) convertView.findViewById(R.id.mover_email);
         TextView moverLocation = (TextView) convertView.findViewById(R.id.mover_location);
         // Populate the data into the template view using the data object
-        moverData.setText("Mover: " + mover.mover);
-        moverStartTime.setText("Start Time: " + mover.start_time);
-        moverEndTime.setText("End Time: " + mover.end_time);
-        moverDate.setText("Date: " + mover.date);
-        moverLocation.setText("Location: " + mover.location);
+        moverData.setText("DRIFTer : " + mover.mover);
+        //moverStartTime.setText("Start Time: " + mover.start_time);
+        //moverEndTime.setText("End Time: " + mover.end_time);
+        //moverDate.setText("Date: " + mover.date);
+        moverName.setText("Name : " + mover.mover_name);
+        moverPhone.setText("Phone : " + mover.mover_phone);
+        moverEmail.setText("Email : " + mover.mover_email);
+        moverLocation.setText("Location [In 25 Miles] : " + mover.location);
         // Return the completed view to render on screen
         return convertView;
     }

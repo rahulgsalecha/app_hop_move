@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/drift"
     android:orientation="vertical" >
     
     <TextView
@@ -9,43 +10,60 @@
         android:layout_width="336dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"    
-        android:text="You want a..." />
+        android:text="You want a..."
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:textColor="@color/black" />
     
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
+    <com.example.hop.CustomAutoCompleteView
+        android:id="@+id/myautocomplete1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/mover_array"
-        android:layout_marginTop="20dp"    
-        android:prompt="@string/select1"/>
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:completionThreshold="1" >
+    </com.example.hop.CustomAutoCompleteView>
     
     <TextView
         android:id="@+id/startTime"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/starttime" />
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:text="@string/starttime"
+        android:textColor="@color/black" />
     
     <TextView
         android:id="@+id/endTime"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" 
-        android:layout_marginTop="20dp"                
-        android:text="@string/endtime"/>
+        android:layout_marginTop="20dp" 
+        android:textStyle="bold"
+        android:textSize="13dp"               
+        android:text="@string/endtime"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/date"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/date" />
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:text="@string/date"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/location"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/location" />
+        android:textStyle="bold"
+        android:textSize="13dp"
+        android:text="@string/location"
+        android:textColor="@color/black" />
     
     <Button 
         android:id="@+id/buttonSubmit" 
@@ -53,5 +71,26 @@
         android:layout_height="wrap_content" 
         android:layout_marginTop="20.0dip" 
         android:text="@string/submit" 
-        android:layout_below="@id/location" />
+        android:layout_below="@id/location"
+         />
+    
+    <Button
+            android:id="@+id/backToMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/buttonSubmit"
+            android:onClick="navigateToMain"
+            android:text="@string/back_to_main" />
+    
+    <Button
+            android:id="@+id/log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/backToMain"
+            android:onClick="logOut"
+            android:text="@string/log_out_label" />
 </LinearLayout>

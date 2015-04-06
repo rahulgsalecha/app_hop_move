@@ -21,7 +21,7 @@
 
     <application
         android:name="com.example.hop.Application"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" android:icon="@drawable/ic_launcher">
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -34,6 +34,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+            <intent-filter>
+                <action android:name="android.intent.action.LoginActivity.class" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+            <intent-filter>
+                <action android:name="android.intent.action.RegisterActivity.class" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
         <activity
             android:name=".MoverDetails"
             android:label="@string/mover_name" >
@@ -42,6 +61,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".UserDetails"
             android:label="@string/user_name" >
@@ -50,8 +70,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        
+         
         <activity
             android:name=".LocationDetails"
             android:label="@string/user_name" >
@@ -60,8 +79,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        
+           
         <activity
             android:name=".UserSelections"
             android:label="@string/user_name" >
