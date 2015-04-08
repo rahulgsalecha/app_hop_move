@@ -39,11 +39,10 @@ public class UserDetails extends Activity
   implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener
 {
   private static String logtag = "UserDetails Page";
-  SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
+  SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("MM/dd/yyyy");
   ParseObject UserDataStore = new ParseObject("UserDataStore");
   Button buttonSubmit;
   Button logOut;
-  Button backToMain;
   private String date_data;
   private String end_time;
   private String location;
@@ -89,33 +88,9 @@ public class UserDetails extends Activity
     });
     
     logOut = (Button)findViewById(R.id.log_out); 
-    
-    backToMain = (Button)findViewById(R.id.backToMain); 
+     
   }
   
-  
-/*
-  public void addListenerOnSpinnerItemSelection() {
-		spinner1 = (Spinner) findViewById(R.id.spinner1);
-		spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-
-	        @Override
-	        public void onItemSelected(AdapterView<?> arg0, View arg1,int arg2, long arg3) {
-	        	user_data = spinner1.getSelectedItem().toString();
-	    		UserDataStore.put("user", user_data);
-	    		UserDataStore.saveInBackground();
-
-	        }
-
-	        @Override
-	        public void onNothingSelected(AdapterView<?> arg0) {
-	            // TODO Auto-generated method stub
-
-	        }       
-
-	    });
-	}
-  */
   public void addListenerOnAutoCompleteViewSelection_User()
 	{
 		try{
@@ -274,6 +249,7 @@ public class UserDetails extends Activity
 			textview4.setText(location);
 			UserDataStore.put("location", location); 
 			UserDataStore.saveInBackground();
+			textview4.setText("Location : " + location);
 		}
 
 	}
@@ -369,6 +345,7 @@ public class UserDetails extends Activity
 			date_data = textview3.getText().toString();
 			UserDataStore.put("date", date_data);
 			UserDataStore.saveInBackground();
+			textview3.setText("Date : " + DATE_FORMATTER.format(cal.getTime()));
 		}
 
 	}
@@ -396,10 +373,25 @@ public class UserDetails extends Activity
 		}
 
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			
+			String am_pm = "";
+
+		    Calendar datetime = Calendar.getInstance();
+		    datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		    datetime.set(Calendar.MINUTE, minute);
+
+		    if (datetime.get(Calendar.AM_PM) == Calendar.AM)
+		        am_pm = "AM";
+		    else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
+		        am_pm = "PM";
+
+		    String strHrsToShow = (datetime.get(Calendar.HOUR) == 0) ?"12":datetime.get(Calendar.HOUR)+""; 
+		    
 			textview2.setText(""+hourOfDay+":"+minute);
 			end_time = textview2.getText().toString();
 			UserDataStore.put("end_time", end_time);
 			UserDataStore.saveInBackground();
+			textview2.setText("End Time : " + strHrsToShow+":"+datetime.get(Calendar.MINUTE)+" "+am_pm);
 		}
 
 	}
@@ -425,10 +417,24 @@ public class UserDetails extends Activity
 		}
 
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			String am_pm = "";
+
+		    Calendar datetime = Calendar.getInstance();
+		    datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		    datetime.set(Calendar.MINUTE, minute);
+
+		    if (datetime.get(Calendar.AM_PM) == Calendar.AM)
+		        am_pm = "AM";
+		    else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
+		        am_pm = "PM";
+
+		    String strHrsToShow = (datetime.get(Calendar.HOUR) == 0) ?"12":datetime.get(Calendar.HOUR)+""; 
+		    
 			textview1.setText(""+hourOfDay+":"+minute);
 			start_time = textview1.getText().toString();
 			UserDataStore.put("start_time", start_time);
 			UserDataStore.saveInBackground();
+			textview1.setText("Start Time : " +  strHrsToShow+":"+datetime.get(Calendar.MINUTE)+" "+am_pm);
 		}
 
 	}

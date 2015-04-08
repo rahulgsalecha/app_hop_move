@@ -1,22 +1,15 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drift"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical" 
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hop.MoveMain" >
-
-    <Button
-        android:id="@+id/buttonMover"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonUser"
-        android:layout_marginTop="116dp"
-        android:text="@string/mover" />
 
     <TextView
         android:id="@+id/textView1"
@@ -24,27 +17,58 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
         android:text="@string/welcome"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/black" />
-
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView1"
+        android:text="Looking for a service ? "
+        android:textSize="15dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black" />
+    
     <Button
         android:id="@+id/buttonUser"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="5dp"
         android:text="@string/user" />
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonUser"
+        android:text="Have a service ? "
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:textColor="@color/black" />
+    
+    <Button
+        android:id="@+id/buttonMover"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="5dp"
+        android:text="I'm a DRIFTer" />
     
     <Button
             android:id="@+id/log_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@+id/buttonMover"
             android:onClick="logOut"
             android:text="@string/log_out_label" />
 
-</RelativeLayout>
+</LinearLayout>

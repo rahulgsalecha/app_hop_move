@@ -43,7 +43,7 @@ public class MoverDetails extends Activity
 implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener
 {
 	private static String logtag = "MoverDetails Page";
-	SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("MM/dd/yyyy");
 	ParseObject MoverDataStore_1 = new ParseObject("MoverDataStore_1");
 	ParseObject UserDetails = new ParseObject("UserDetails");
 	Button buttonSubmit;
@@ -192,7 +192,8 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 			ParseGeoPoint mover_point = new ParseGeoPoint(mover_latlong.latitude, mover_latlong.longitude); 
 			MoverDataStore_1.put("mover_point", mover_point);
 			MoverDataStore_1.saveInBackground();
-			textview4.setText("Location: " + location);
+			textview4.setText("Location : " + location);
+			
 		}
 	}
 
@@ -314,7 +315,7 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 			date_data = textview3.getText().toString();
 			MoverDataStore_1.put("date", MoverDetails.this.date_data);
 			MoverDataStore_1.saveInBackground();
-			textview3.setText("Date Available: " + DATE_FORMATTER.format(cal.getTime()));
+			textview3.setText("Date Available : " + DATE_FORMATTER.format(cal.getTime()));
 		}
 	}
 
@@ -340,11 +341,25 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 		}
 
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			
+			String am_pm = "";
+
+		    Calendar datetime = Calendar.getInstance();
+		    datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		    datetime.set(Calendar.MINUTE, minute);
+
+		    if (datetime.get(Calendar.AM_PM) == Calendar.AM)
+		        am_pm = "AM";
+		    else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
+		        am_pm = "PM";
+
+		    String strHrsToShow = (datetime.get(Calendar.HOUR) == 0) ?"12":datetime.get(Calendar.HOUR)+""; 
+
 			textview2.setText(""+hourOfDay+":"+minute);
 			end_time = textview2.getText().toString();
 			MoverDataStore_1.put("end_time", MoverDetails.this.end_time);
 			MoverDataStore_1.saveInBackground();
-			textview2.setText("End Time is : " +""+hourOfDay+":"+minute);
+			textview2.setText("End Time : " + strHrsToShow+":"+datetime.get(Calendar.MINUTE)+" "+am_pm);
 		}
 	}
 
@@ -371,11 +386,25 @@ implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerD
 		}
 
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+			
+			String am_pm = "";
+
+		    Calendar datetime = Calendar.getInstance();
+		    datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+		    datetime.set(Calendar.MINUTE, minute);
+
+		    if (datetime.get(Calendar.AM_PM) == Calendar.AM)
+		        am_pm = "AM";
+		    else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
+		        am_pm = "PM";
+
+		    String strHrsToShow = (datetime.get(Calendar.HOUR) == 0) ?"12":datetime.get(Calendar.HOUR)+""; 
+
 			textview1.setText(""+hourOfDay+":"+minute);
 			start_time = textview1.getText().toString();
 			MoverDataStore_1.put("start_time", MoverDetails.this.start_time);
 			MoverDataStore_1.saveInBackground();
-			textview1.setText("Start Time is : " + ""+hourOfDay+":"+minute);
+			textview1.setText("Start Time : " +  strHrsToShow+":"+datetime.get(Calendar.MINUTE)+" "+am_pm);
 		}
 	}
 	

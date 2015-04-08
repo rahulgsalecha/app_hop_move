@@ -2,50 +2,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/drift"
-    android:orientation="vertical" >
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+     >
 
     <TextView
         android:id="@+id/mover_name"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
         android:textStyle="bold"
-        android:textSize="13dp"
+        android:textSize="17dp"
         android:text="@string/mover_name_detail"
+        android:background="@drawable/testing_gradient"
+        android:paddingLeft="60dp"
+        android:layout_height="50dp" 
         android:textColor="@color/black" />
     
     <TextView
         android:id="@+id/mover_data"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textSize="13dp"
+        android:textSize="17dp"
         android:layout_below="@+id/mover_name"
         android:text="@string/mover_data"
+        android:background="@drawable/testing_gradient"
+        android:paddingLeft="60dp"
+        android:layout_height="50dp" 
         android:textColor="@color/black" />
     
     <TextView
         android:id="@+id/mover_phone"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textSize="13dp"
+        android:textSize="17dp"
         android:layout_below="@+id/mover_data"
         android:text="@string/mover_phone"
+        android:background="@drawable/testing_gradient"
+        android:paddingLeft="60dp"
+        android:layout_height="50dp" 
         android:textColor="@color/black" />
     
     <TextView
         android:id="@+id/mover_email"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textSize="13dp"
+        android:textSize="17dp"
         android:layout_below="@+id/mover_phone"
         android:text="@string/mover_email"
+        android:background="@drawable/testing_gradient"
+        android:paddingLeft="60dp"
+        android:layout_height="50dp" 
         android:textColor="@color/black" />
 <!-- 
     <TextView
@@ -78,12 +89,14 @@
     <TextView
         android:id="@+id/mover_location"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textSize="13dp"
+        android:textSize="17dp"
         android:layout_below="@+id/mover_email"
         android:text="@string/mover_location"
+        android:background="@drawable/testing_gradient"
+        android:paddingLeft="60dp"
+        android:layout_height="50dp" 
         android:textColor="@color/black" />
 
 </RelativeLayout>

@@ -8,7 +8,7 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="21" />
     
-    <permission android:name="com.example.hop.googlemapsv2.permission.MAPS_RECEIVE" />
+    <!--  <permission android:name="com.example.hop.googlemapsv2.permission.MAPS_RECEIVE" />-->
     <uses-permission android:name="com.example.hop.googlemapsv2.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />

@@ -43,7 +43,7 @@ public class MoverAdapter extends ArrayAdapter<MoverItems> {
         moverName.setText("Name : " + mover.mover_name);
         moverPhone.setText("Phone : " + mover.mover_phone);
         moverEmail.setText("Email : " + mover.mover_email);
-        moverLocation.setText("Location [In 25 Miles] : " + mover.location);
+        moverLocation.setText("Location (< 25 miles): " + mover.location);
         // Return the completed view to render on screen
         return convertView;
     }
